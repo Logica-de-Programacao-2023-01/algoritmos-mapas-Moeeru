@@ -1,0 +1,57 @@
+#Exercicio 1
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func contador(frase string) map[string]int {
+	palavra := strings.ToLower(frase)
+	ocorencias := make(map[string]int)
+
+	for _, letra := range palavra {
+		ocorencias[string(letra)]++
+	}
+
+	return ocorencias
+}
+
+func main() {
+	frase := ""
+	fmt.Print("Digite uma frase: ")
+	fmt.Scan(&frase)
+	solucao := contador(frase)
+	fmt.Print(solucao)
+}
+
+#Exercicio 2
+package main
+
+import "fmt"
+
+func medianota(notas map[string][]float64) map[string]float64 {
+
+	medianotas := make(map[string]float64)
+	for nome, notas := range notas {
+		media := 0.0
+		soma := 0.0
+		for _, nota := range notas {
+			soma += nota
+		}
+		media = soma / float64(len(notas))
+		medianotas[nome] = media
+	}
+	return medianotas
+}
+
+func main() {
+	bla := map[string][]float64{
+		"Roger": {10, 2, 4, 9},
+		"Lucas": {2, 4, 7, 3},
+	}
+	solucao := medianota(bla)
+	fmt.Print(solucao)
+}
+
+#Exercicio 3
